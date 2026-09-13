@@ -44,20 +44,21 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, FavoritosActivity::class.java))
         }
 
-        // Spinner SOLO en la primera carga (aún sin datos). Después no molesta.
-        var primeraCarga = true
-        vm.cargando.observe(this) {
-            loading.visibility = if (it && primeraCarga) View.VISIBLE else View.GONE
-        }
+        // Spinner mientras carga (solo dura durante la carga real).
+        vm.cargando.observe(this) { loading.visibility = if (it) View.VISIBLE else View.GONE }
+
+        // La lista: texto de estado estable cuando hay datos.
         vm.lugares.observe(this) { lista ->
             adapter.actualizar(lista)
-            if (lista.isEmpty() && primeraCarga) {
-                txtEstado.text = "Sin datos locales. Conecta una vez para sincronizar."
-                Toast.makeText(this, "Sin datos: activa internet una vez para sincronizar", Toast.LENGTH_LONG).show()
-            } else if (lista.isNotEmpty()) {
-                txtEstado.text = "${lista.size} puntos en el recorrido"
+            if (lista.isNotEmpty()) txtEstado.text = "${lista.size} puntos en el recorrido"
+        }
+
+        // El mensaje "Sin datos" SOLO si el repositorio realmente terminó y no encontró nada.
+        vm.mensaje.observe(this) { msg ->
+            if (msg != null) {
+                txtEstado.text = msg
+                Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
             }
-            primeraCarga = false
         }
 
         vm.cargar()
