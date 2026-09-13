@@ -1,6 +1,5 @@
 -- itanes.sql — Importar en phpMyAdmin (http://localhost/phpmyadmin)
--- ¿Para qué? Crea la BD remota que tu app consume cuando HAY internet.
--- Cuando NO hay internet, la app usa Room/SQLite local (misma estructura).
+-- Coordenadas exactas fuente Wikipedia (WGS84) + fotos reales Wikimedia Commons.
 CREATE DATABASE IF NOT EXISTS itanes CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE itanes;
 
@@ -10,19 +9,14 @@ CREATE TABLE IF NOT EXISTS lugares (
   descripcion TEXT NOT NULL,
   latitud DOUBLE NOT NULL,
   longitud DOUBLE NOT NULL,
-  imagen_url VARCHAR(255) NOT NULL,
+  imagen_url VARCHAR(500) NOT NULL,
   orden INT NOT NULL
 );
 
+DELETE FROM lugares;
 INSERT INTO lugares (nombre, descripcion, latitud, longitud, imagen_url, orden) VALUES
-('Plaza de Armas del Cusco','Corazón histórico del Cusco. Catedral, portales y punto de partida del recorrido. Ideal para aclimatarse (3399 msnm).',-13.5167,-71.9788,'https://picsum.photos/seed/itanes-cusco/800/600',1),
-('Sacsayhuamán','Fortaleza inca de piedras megalíticas. Vista panorámica del Cusco. Subida en auto 10 min desde la plaza.',-13.5091,-71.9822,'https://picsum.photos/seed/itanes-sacsayhuaman/800/600',2),
-('Písac - Valle Sagrado','Andenes incas + mercado artesanal. Ruta Cusco-Písac 45 min en auto por el Valle Sagrado.',-13.4215,-71.8575,'https://picsum.photos/seed/itanes-pisac/800/600',3),
-('Ollantaytambo','Último pueblo inca vivo. Andenes, graneros y estación de tren a Machu Picchu. 2h desde Cusco.',-13.2572,-72.2630,'https://picsum.photos/seed/itanes-ollantaytambo/800/600',4),
-('Machu Picchu','Maravilla del mundo. Ciudadela inca entre montañas. Acceso desde Ollantaytambo en tren + bus.',-13.1631,-72.5450,'https://picsum.photos/seed/itanes-machupicchu/800/600',5);
--- Si ya importaste antes con URLs rotas, ejecuta esto en phpMyAdmin para corregir fotos:
--- UPDATE lugares SET imagen_url='https://picsum.photos/seed/itanes-cusco/800/600' WHERE id=1;
--- UPDATE lugares SET imagen_url='https://picsum.photos/seed/itanes-sacsayhuaman/800/600' WHERE id=2;
--- UPDATE lugares SET imagen_url='https://picsum.photos/seed/itanes-pisac/800/600' WHERE id=3;
--- UPDATE lugares SET imagen_url='https://picsum.photos/seed/itanes-ollantaytambo/800/600' WHERE id=4;
--- UPDATE lugares SET imagen_url='https://picsum.photos/seed/itanes-machupicchu/800/600' WHERE id=5;
+('Plaza de Armas del Cusco','Corazón histórico del Cusco. Catedral, portales y punto de partida del recorrido. Ideal para aclimatarse (3399 msnm).',-13.516711,-71.978823,'https://commons.wikimedia.org/wiki/Special:FilePath/Plaza_de_Cusco_Allison_Bellido.jpg?width=800',1),
+('Sacsayhuamán','Fortaleza inca de piedras megalíticas. Vista panorámica del Cusco. Subida en auto 10 min desde la plaza.',-13.507778,-71.982222,'https://commons.wikimedia.org/wiki/Special:FilePath/Sacsayhuam%C3%A1n%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_01.JPG?width=800',2),
+('Písac - Valle Sagrado','Andenes incas y zona arqueológica sobre el Valle Sagrado. Ruta Cusco-Písac 45 min en auto.',-13.408886,-71.842872,'https://commons.wikimedia.org/wiki/Special:FilePath/15-Pisac-nX-2.jpg?width=800',3),
+('Ollantaytambo','Último pueblo inca vivo. Andenes, graneros y estación de tren a Machu Picchu. 2h desde Cusco.',-13.258056,-72.263333,'https://commons.wikimedia.org/wiki/Special:FilePath/Town_of_Ollantaytambo.jpg?width=800',4),
+('Machu Picchu','Maravilla del mundo. Ciudadela inca entre montañas. Acceso desde Ollantaytambo en tren + bus.',-13.163333,-72.545556,'https://commons.wikimedia.org/wiki/Special:FilePath/Machu_Picchu%2C_Peru_%282018%29.jpg?width=800',5);

@@ -6,45 +6,45 @@
       "id": 1,
       "nombre": "Plaza de Armas del Cusco",
       "descripcion": "Corazón histórico del Cusco. Catedral, portales y punto de partida del recorrido. Ideal para aclimatarse (3399 msnm).",
-      "latitud": -13.5167,
-      "longitud": -71.9788,
-      "imagen_url": "https://picsum.photos/seed/itanes-cusco/800/600",
+      "latitud": -13.516711,
+      "longitud": -71.978823,
+      "imagen_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Plaza_de_Cusco_Allison_Bellido.jpg?width=800",
       "orden": 1
     },
     {
       "id": 2,
       "nombre": "Sacsayhuamán",
       "descripcion": "Fortaleza inca de piedras megalíticas. Vista panorámica del Cusco. Subida en auto 10 min desde la plaza.",
-      "latitud": -13.5091,
-      "longitud": -71.9822,
-      "imagen_url": "https://picsum.photos/seed/itanes-sacsayhuaman/800/600",
+      "latitud": -13.507778,
+      "longitud": -71.982222,
+      "imagen_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sacsayhuam%C3%A1n%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_01.JPG?width=800",
       "orden": 2
     },
     {
       "id": 3,
       "nombre": "Písac - Valle Sagrado",
-      "descripcion": "Andenes incas + mercado artesanal. Ruta Cusco-Písac 45 min en auto por el Valle Sagrado.",
-      "latitud": -13.4215,
-      "longitud": -71.8575,
-      "imagen_url": "https://picsum.photos/seed/itanes-pisac/800/600",
+      "descripcion": "Andenes incas y zona arqueológica sobre el Valle Sagrado. Ruta Cusco-Písac 45 min en auto.",
+      "latitud": -13.408886,
+      "longitud": -71.842872,
+      "imagen_url": "https://commons.wikimedia.org/wiki/Special:FilePath/15-Pisac-nX-2.jpg?width=800",
       "orden": 3
     },
     {
       "id": 4,
       "nombre": "Ollantaytambo",
       "descripcion": "Último pueblo inca vivo. Andenes, graneros y estación de tren a Machu Picchu. 2h desde Cusco.",
-      "latitud": -13.2572,
-      "longitud": -72.263,
-      "imagen_url": "https://picsum.photos/seed/itanes-ollantaytambo/800/600",
+      "latitud": -13.258056,
+      "longitud": -72.263333,
+      "imagen_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Town_of_Ollantaytambo.jpg?width=800",
       "orden": 4
     },
     {
       "id": 5,
       "nombre": "Machu Picchu",
       "descripcion": "Maravilla del mundo. Ciudadela inca entre montañas. Acceso desde Ollantaytambo en tren + bus.",
-      "latitud": -13.1631,
-      "longitud": -72.545,
-      "imagen_url": "https://picsum.photos/seed/itanes-machupicchu/800/600",
+      "latitud": -13.163333,
+      "longitud": -72.545556,
+      "imagen_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Machu_Picchu%2C_Peru_%282018%29.jpg?width=800",
       "orden": 5
     }
   ]

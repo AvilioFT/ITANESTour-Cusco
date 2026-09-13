@@ -17,12 +17,12 @@ ITANESTour/
 ```
 Gradle solo mira `app/`, ignora `backend-api/`. Por eso no se rompe.
 
-## 5 puntos (Cusco)
-1. Plaza de Armas del Cusco (-13.5167, -71.9788)
-2. Sacsayhuamán (-13.5091, -71.9822)
-3. Písac - Valle Sagrado (-13.4215, -71.8575)
-4. Ollantaytambo (-13.2572, -72.2630)
-5. Machu Picchu (-13.1631, -72.5450)
+## 5 puntos (Cusco, coords exactas Wikipedia WGS84 + fotos reales Wikimedia)
+1. Plaza de Armas del Cusco (-13.516711, -71.978823)
+2. Sacsayhuamán (-13.507778, -71.982222)
+3. Písac - Valle Sagrado (-13.408886, -71.842872)
+4. Ollantaytambo (-13.258056, -72.263333)
+5. Machu Picchu (-13.163333, -72.545556)
 
 ## Cómo correr (resumen)
 1. **API:** copiar `backend-api/` a `C:/xampp/htdocs/itanes/` o `/opt/lampp/htdocs/itanes/`, importar `database/itanes.sql`, probar con Bruno: `GET http://localhost/itanes/api/lugares.php`
