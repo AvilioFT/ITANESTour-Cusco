@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "total": 5,
+  "data": [
+    {
+      "id": 1,
+      "nombre": "Plaza de Armas del Cusco",
+      "descripcion": "Corazón histórico del Cusco. Catedral, portales y punto de partida del recorrido. Ideal para aclimatarse (3399 msnm).",
+      "latitud": -13.5167,
+      "longitud": -71.9788,
+      "imagen_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Plaza_de_Armas_Cusco.jpg/800px-Plaza_de_Armas_Cusco.jpg",
+      "orden": 1
+    },
+    {
+      "id": 2,
+      "nombre": "Sacsayhuamán",
+      "descripcion": "Fortaleza inca de piedras megalíticas. Vista panorámica del Cusco. Subida en auto 10 min desde la plaza.",
+      "latitud": -13.5091,
+      "longitud": -71.9822,
+      "imagen_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sacsayhuaman.jpg/800px-Sacsayhuaman.jpg",
+      "orden": 2
+    },
+    {
+      "id": 3,
+      "nombre": "Písac - Valle Sagrado",
+      "descripcion": "Andenes incas + mercado artesanal. Ruta Cusco-Písac 45 min en auto por el Valle Sagrado.",
+      "latitud": -13.4215,
+      "longitud": -71.8575,
+      "imagen_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pisac.jpg/800px-Pisac.jpg",
+      "orden": 3
+    },
+    {
+      "id": 4,
+      "nombre": "Ollantaytambo",
+      "descripcion": "Último pueblo inca vivo. Andenes, graneros y estación de tren a Machu Picchu. 2h desde Cusco.",
+      "latitud": -13.2572,
+      "longitud": -72.263,
+      "imagen_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Ollantaytambo.jpg/800px-Ollantaytambo.jpg",
+      "orden": 4
+    },
+    {
+      "id": 5,
+      "nombre": "Machu Picchu",
+      "descripcion": "Maravilla del mundo. Ciudadela inca entre montañas. Acceso desde Ollantaytambo en tren + bus.",
+      "latitud": -13.1631,
+      "longitud": -72.545,
+      "imagen_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Machu_Picchu%2C_Peru.jpg/800px-Machu_Picchu%2C_Peru.jpg",
+      "orden": 5
+    }
+  ]
+}
