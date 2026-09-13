@@ -31,4 +31,15 @@ class TourViewModel(app: Application) : AndroidViewModel(app) {
             finally { _cargando.postValue(false) }
         }
     }
+
+    /**
+     * Recarga SOLO local (SQLite), sin red ni spinner.
+     * ¿Para qué? Al volver de Favoritos la lista refleja los ★ guardados,
+     * pero SIN ese "refrescandose..." de arriba ni re-descarga por red.
+     */
+    fun recargarLocales() {
+        viewModelScope.launch(Dispatchers.IO) {
+            _lugares.postValue(repo.favoritosConEstado())
+        }
+    }
 }

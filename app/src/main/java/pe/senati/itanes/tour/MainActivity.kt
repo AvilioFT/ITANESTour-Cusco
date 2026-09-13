@@ -44,26 +44,29 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, FavoritosActivity::class.java))
         }
 
-        // Fix mensaje falso: el LiveData arranca vacio antes de cargar.
-        // Solo avisamos cuando termino de cargar (cargando == false) y sigue vacio.
-        var cargandoAhora = true
+        // Spinner SOLO en la primera carga (aún sin datos). Después no molesta.
+        var primeraCarga = true
         vm.cargando.observe(this) {
-            cargandoAhora = it
-            loading.visibility = if (it) View.VISIBLE else View.GONE
-            if (it) txtEstado.text = "Cargando recorrido..."
+            loading.visibility = if (it && primeraCarga) View.VISIBLE else View.GONE
         }
         vm.lugares.observe(this) { lista ->
             adapter.actualizar(lista)
-            if (lista.isEmpty() && !cargandoAhora) {
-                txtEstado.text = "Sin datos locales. Conecta internet una vez para sincronizar."
+            if (lista.isEmpty() && primeraCarga) {
+                txtEstado.text = "Sin datos locales. Conecta una vez para sincronizar."
                 Toast.makeText(this, "Sin datos: activa internet una vez para sincronizar", Toast.LENGTH_LONG).show()
             } else if (lista.isNotEmpty()) {
                 txtEstado.text = "${lista.size} puntos en el recorrido"
             }
+            primeraCarga = false
         }
 
         vm.cargar()
     }
 
-    override fun onResume() { super.onResume(); vm.cargar() }
+    override fun onResume() {
+        super.onResume()
+        // Al volver de Favoritos/Detalle SOLO se actualizan las estrellas ★ (SQLite local).
+        // Sin spinner, sin re-descarga por red: evita ese "refrescandose..." constante.
+        vm.recargarLocales()
+    }
 }

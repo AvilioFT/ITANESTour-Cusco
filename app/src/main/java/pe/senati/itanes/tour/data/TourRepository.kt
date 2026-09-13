@@ -43,6 +43,9 @@ class TourRepository(private val ctx: Context) {
     fun toggleFavorito(l: Lugar, fav: Boolean) = db.setFavorito(l.id, fav)
     fun favoritos(): List<Lugar> = db.listarFavoritos()
 
+    /** Lee SOLO SQLite local (sin red ni demora). Al volver de Favoritos actualiza las ★. */
+    fun favoritosConEstado(): List<Lugar> = db.listarTodos()
+
     private fun hayInternet(): Boolean {
         val cm = ctx.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val n = cm.activeNetwork ?: return false
