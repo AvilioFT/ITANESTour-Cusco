@@ -11,8 +11,7 @@ ITANESTour/
  │   ├── config/db.php
  │   ├── api/lugares.php
  │   └── database/itanes.sql
-  ├── bruno/             # Colección Bruno (como Postman, para Linux)
-  └── README.md
+  └── bruno/             # Colección Bruno (como Postman, para Linux)
 ```
 Gradle solo mira `app/`, ignora `backend-api/`. Por eso no se rompe.
 
