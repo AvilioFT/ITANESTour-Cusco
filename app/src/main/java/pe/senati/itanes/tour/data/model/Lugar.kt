@@ -12,13 +12,13 @@ import java.io.Serializable
  * Serializable = puedes pasarlo entre Activities con Intent.putExtra (flujo de navegación).
  */
 data class Lugar(
-    @SerializedName("id") val id: Int,
-    @SerializedName("nombre") val nombre: String,
-    @SerializedName("descripcion") val descripcion: String,
-    @SerializedName("latitud") val latitud: Double,
-    @SerializedName("longitud") val longitud: Double,
-    @SerializedName("imagen_url") val imagenUrl: String,
-    @SerializedName("orden") val orden: Int,
+    @SerializedName("id") val id: Int = 0,
+    @SerializedName("nombre") val nombre: String = "",
+    @SerializedName("descripcion") val descripcion: String = "",
+    @SerializedName("latitud") val latitud: Double = 0.0,
+    @SerializedName("longitud") val longitud: Double = 0.0,
+    @SerializedName("imagen_url") val imagenUrl: String = "",
+    @SerializedName("orden") val orden: Int = 0,
     // favorito SOLO vive en SQLite local, no viene del PHP. Por defecto 0.
     var favorito: Int = 0
 ) : Serializable

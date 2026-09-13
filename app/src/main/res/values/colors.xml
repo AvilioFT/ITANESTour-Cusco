@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Tokyo Night palette -->
+    <color name="tn_bg">#FF1A1B26</color>
+    <color name="tn_bg_dark">#FF16161E</color>
+    <color name="tn_surface">#FF24283B</color>
+    <color name="tn_surface_light">#FF2F354D</color>
+    <color name="tn_fg">#FFC0CAF5</color>
+    <color name="tn_muted">#FF565F89</color>
+    <color name="tn_blue">#FF7AA2F7</color>
+    <color name="tn_cyan">#FF7DCFFF</color>
+    <color name="tn_purple">#FFBB9AF7</color>
+    <color name="tn_green">#FF9ECE6A</color>
+    <color name="tn_yellow">#FFE0AF68</color>
+    <color name="tn_red">#FFF7768E</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

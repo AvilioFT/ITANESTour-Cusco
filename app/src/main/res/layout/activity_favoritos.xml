@@ -3,13 +3,25 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp">
+    android:background="@color/tn_bg"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mis favoritos"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/tn_fg" />
 
     <TextView
         android:id="@+id/txtVacio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Favoritos" />
+        android:text="Favoritos"
+        android:textColor="@color/tn_muted"
+        android:paddingTop="4dp"
+        android:paddingBottom="8dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFav"

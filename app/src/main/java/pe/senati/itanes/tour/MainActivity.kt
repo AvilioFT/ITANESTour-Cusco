@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -17,8 +18,7 @@ import pe.senati.itanes.tour.ui.TourViewModel
 
 /**
  * MainActivity: pantalla principal (lista del recorrido).
- * Flujo: Main -> Detalle (Intent explícito con Lugar) -> Maps (Intent implícito) / Favoritos.
- * ¿Qué aprende el alumno? Intent explícito = navegas tú; implícito = pides a otra app (Maps).
+ * Flujo: Main -> Detalle (Intent explicito con Lugar) -> Maps (Intent implicito) / Favoritos.
  */
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         val rv = findViewById<RecyclerView>(R.id.rvLugares)
         val loading = findViewById<ProgressBar>(R.id.loading)
+        val txtEstado = findViewById<TextView>(R.id.txtEstado)
         adapter = LugarAdapter(emptyList()) {
             startActivity(Intent(this, DetalleActivity::class.java).putExtra("lugar", it))
         }
@@ -41,14 +42,26 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, FavoritosActivity::class.java))
         }
 
-        vm.lugares.observe(this) {
-            adapter.actualizar(it)
-            if (it.isEmpty()) Toast.makeText(this, "Sin datos: revisa XAMPP o mock", Toast.LENGTH_LONG).show()
+        // Fix mensaje falso: el LiveData arranca vacio antes de cargar.
+        // Solo avisamos cuando termino de cargar (cargando == false) y sigue vacio.
+        var cargandoAhora = true
+        vm.cargando.observe(this) {
+            cargandoAhora = it
+            loading.visibility = if (it) View.VISIBLE else View.GONE
+            if (it) txtEstado.text = "Cargando recorrido..."
         }
-        vm.cargando.observe(this) { loading.visibility = if (it) View.VISIBLE else View.GONE }
+        vm.lugares.observe(this) { lista ->
+            adapter.actualizar(lista)
+            if (lista.isEmpty() && !cargandoAhora) {
+                txtEstado.text = "Sin datos locales. Conecta internet una vez para sincronizar."
+                Toast.makeText(this, "Sin datos: activa internet una vez para sincronizar", Toast.LENGTH_LONG).show()
+            } else if (lista.isNotEmpty()) {
+                txtEstado.text = "${lista.size} puntos en el recorrido"
+            }
+        }
 
-        vm.cargar() // offline-first desde Repository
+        vm.cargar()
     }
 
-    override fun onResume() { super.onResume(); vm.cargar() } // refresca ★ favoritos al volver
+    override fun onResume() { super.onResume(); vm.cargar() }
 }

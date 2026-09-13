@@ -12,8 +12,7 @@ import pe.senati.itanes.tour.data.model.Lugar
 
 /**
  * Adapter: convierte List<Lugar> en filas visibles.
- * ¿Para qué? RecyclerView recicla vistas (eficiente con fotos).
- * Glide carga la URL con caché + resize (pregunta guía 2: app no pesa).
+ * RecyclerView recicla vistas. Glide usa cache para no descargar dos veces.
  */
 class LugarAdapter(
     private var items: List<Lugar>,
@@ -35,9 +34,12 @@ class LugarAdapter(
     override fun onBindViewHolder(h: VH, pos: Int) {
         val l = items[pos]
         h.nombre.text = "${l.orden}. ${l.nombre}"
-        h.desc.text = l.descripcion.take(90) + "…"
+        h.desc.text = if (l.descripcion.length > 90) l.descripcion.take(90) + "..." else l.descripcion
         h.fav.visibility = if (l.favorito == 1) View.VISIBLE else View.GONE
-        Glide.with(h.itemView).load(l.imagenUrl).centerCrop().into(h.img)
+        Glide.with(h.itemView)
+            .load(l.imagenUrl)
+            .centerCrop()
+            .into(h.img)
         h.itemView.setOnClickListener { onClick(l) }
     }
 

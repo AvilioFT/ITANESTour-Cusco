@@ -4,26 +4,39 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp">
+    android:background="@color/tn_bg"
+    android:padding="16dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ITANES Tour — Cusco Imperial"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:text="ITANES Tour"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/tn_fg" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="5 puntos • offline-first • toca un lugar para ver detalle"
-        android:textSize="13sp" />
+        android:text="Cusco Imperial - 5 puntos"
+        android:textSize="14sp"
+        android:textColor="@color/tn_cyan"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Offline first - toca un lugar para ver el detalle"
+        android:textSize="12sp"
+        android:textColor="@color/tn_muted"
+        android:paddingBottom="12dp" />
 
     <Button
         android:id="@+id/btnFavoritos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="★ Ver mis favoritos" />
+        android:text="Ver mis favoritos"
+        android:textColor="@color/tn_bg_dark" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -32,9 +45,20 @@
         android:layout_gravity="center"
         android:visibility="gone" />
 
+    <TextView
+        android:id="@+id/txtEstado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="12sp"
+        android:textColor="@color/tn_muted"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLugares"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:clipToPadding="false" />
 </LinearLayout>

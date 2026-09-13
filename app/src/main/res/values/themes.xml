@@ -1,8 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.ITANESTour" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowBackground">@color/tn_bg</item>
+        <item name="android:statusBarColor">@color/tn_bg_dark</item>
+        <item name="android:navigationBarColor">@color/tn_bg_dark</item>
+        <item name="colorPrimary">@color/tn_blue</item>
+        <item name="colorOnPrimary">@color/tn_bg_dark</item>
+        <item name="colorSecondary">@color/tn_cyan</item>
+        <item name="colorSurface">@color/tn_surface</item>
+        <item name="colorOnSurface">@color/tn_fg</item>
+        <item name="android:textColorPrimary">@color/tn_fg</item>
+        <item name="android:textColorSecondary">@color/tn_muted</item>
     </style>
 
     <style name="Theme.ITANESTour" parent="Base.Theme.ITANESTour" />
