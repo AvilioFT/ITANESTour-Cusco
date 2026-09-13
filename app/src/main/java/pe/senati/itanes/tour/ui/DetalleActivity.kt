@@ -34,10 +34,14 @@ class DetalleActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.txtNombre).text = lugar.nombre
         findViewById<TextView>(R.id.txtDesc).text = lugar.descripcion
+        val imgDetalle = findViewById<ImageView>(R.id.imgDetalle)
+        imgDetalle.setImageResource(lugar.imagenLocal())
         Glide.with(this)
             .load(lugar.imagenUrl)
+            .placeholder(lugar.imagenLocal())
+            .error(lugar.imagenLocal())
             .centerCrop()
-            .into(findViewById<ImageView>(R.id.imgDetalle))
+            .into(imgDetalle)
 
         val btnFav = findViewById<Button>(R.id.btnFav)
         fun pintaFav() {

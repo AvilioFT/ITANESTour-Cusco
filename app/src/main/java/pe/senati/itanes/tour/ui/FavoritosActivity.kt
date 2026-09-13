@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pe.senati.itanes.tour.R
 import pe.senati.itanes.tour.data.TourRepository
@@ -17,7 +17,8 @@ class FavoritosActivity : AppCompatActivity() {
         title = "Mis favoritos"
         val rv = findViewById<RecyclerView>(R.id.rvFav)
         val vacio = findViewById<TextView>(R.id.txtVacio)
-        rv.layoutManager = LinearLayoutManager(this)
+        val cols = resources.getInteger(R.integer.tour_grid_columns)
+        rv.layoutManager = GridLayoutManager(this, cols)
         val ad = LugarAdapter(emptyList()) {
             startActivity(Intent(this, DetalleActivity::class.java).putExtra("lugar", it))
         }

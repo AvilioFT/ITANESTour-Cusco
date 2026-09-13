@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pe.senati.itanes.tour.ui.DetalleActivity
 import pe.senati.itanes.tour.ui.FavoritosActivity
@@ -35,7 +35,9 @@ class MainActivity : AppCompatActivity() {
         adapter = LugarAdapter(emptyList()) {
             startActivity(Intent(this, DetalleActivity::class.java).putExtra("lugar", it))
         }
-        rv.layoutManager = LinearLayoutManager(this)
+        // Responsive: 1 col en smartphone, 2 col en tablet (values/values-sw600dp/integers.xml)
+        val cols = resources.getInteger(R.integer.tour_grid_columns)
+        rv.layoutManager = GridLayoutManager(this, cols)
         rv.adapter = adapter
 
         findViewById<Button>(R.id.btnFavoritos).setOnClickListener {

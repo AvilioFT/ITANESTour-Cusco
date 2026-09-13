@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tabletas (>= 600dp de ancho): la lista pasa a 2 columnas tipo grid. -->
+    <integer name="tour_grid_columns">2</integer>
+</resources>

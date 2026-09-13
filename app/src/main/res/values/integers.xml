@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Responsive (requisito obligatorio): 1 columna en smartphone, 2 en tablet (sw600dp+). -->
+    <integer name="tour_grid_columns">1</integer>
+</resources>

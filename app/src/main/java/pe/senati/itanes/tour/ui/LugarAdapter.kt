@@ -36,8 +36,11 @@ class LugarAdapter(
         h.nombre.text = "${l.orden}. ${l.nombre}"
         h.desc.text = if (l.descripcion.length > 90) l.descripcion.take(90) + "..." else l.descripcion
         h.fav.visibility = if (l.favorito == 1) View.VISIBLE else View.GONE
+        // 1) Imagen empotrada (funciona offline siempre). 2) Si hay red, la remota la reemplaza al sincronizar.
         Glide.with(h.itemView)
             .load(l.imagenUrl)
+            .placeholder(l.imagenLocal())
+            .error(l.imagenLocal())
             .centerCrop()
             .into(h.img)
         h.itemView.setOnClickListener { onClick(l) }

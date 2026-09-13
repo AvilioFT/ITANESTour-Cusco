@@ -1,6 +1,7 @@
 package pe.senati.itanes.tour.data.model
 
 import com.google.gson.annotations.SerializedName
+import pe.senati.itanes.tour.R
 import java.io.Serializable
 
 /**
@@ -21,7 +22,24 @@ data class Lugar(
     @SerializedName("orden") val orden: Int = 0,
     // favorito SOLO vive en SQLite local, no viene del PHP. Por defecto 0.
     var favorito: Int = 0
-) : Serializable
+) : Serializable {
+
+    /**
+     * Imagen LOCAL empotrada (drawable-nodpi). ¿Por qué?
+     * El caso exige funcionar SIN internet una vez descargada. Estas fotos reales
+     * viajan dentro del APK y se muestran siempre, incluso en modo avión.
+     * La remota (imagenUrl) es la que sincroniza cuando hay red (requisito "se actualiza con conexión").
+     * Ejercicio para sustentar: Glide primero intenta la remota; si falla o hay offline, usa esta.
+     */
+    fun imagenLocal(): Int = when (id) {
+        1 -> R.drawable.img_plaza
+        2 -> R.drawable.img_sacsayhuaman
+        3 -> R.drawable.img_pisac
+        4 -> R.drawable.img_ollantaytambo
+        5 -> R.drawable.img_machupicchu
+        else -> R.drawable.img_plaza
+    }
+}
 
 /** Respuesta exacta de lugares.php: { ok, total, data: [...] } */
 data class LugaresResponse(
